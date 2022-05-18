@@ -45,6 +45,7 @@ runs:
         DOCKER_PASSWORD: ${{ inputs.docker-password }}
         DOCKER_CONFIG: "~/.docker"
       run: |
+        sudo ./hack/ci/trust-local-registry.sh
         ./hack/docker-login.sh
         ./hack/release.sh
 
@@ -63,6 +64,7 @@ runs:
     - name: run e2e example
       shell: bash
       run: |
+        sudo ./hack/ci/trust-local-registry.sh
         ./hack/setup.sh cluster pre-built-cartographer example-dependencies example
 
     - name: scan image

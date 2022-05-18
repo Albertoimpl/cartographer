@@ -41,8 +41,6 @@ jobs:
         uses: ./.github/actions/source-checks
 
       - name: generate and test a cartographer release
+        uses: ./.github/actions/create-and-test-release
         with:
           version: v0.0.0-dev
-        run: |-
-          sudo ./hack/ci/trust-local-registry.sh
-          ./.github/actions/create-and-test-release
